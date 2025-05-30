@@ -24,8 +24,11 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    position: relative;
-    z-index: 1000; /* Increased z-index to ensure it's above all other elements */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
 }
 
 .logo {
@@ -57,28 +60,52 @@ nav {
 
 /* Header Section */
 header {
-    background: url('images/header-bg.jpg') no-repeat center center/cover;
-    height: 100vh;
+    background: none;
+    min-height: 100vh;
     color: #fff;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('img/hero.png') no-repeat center center/cover;
+    filter: blur(8px);
+    z-index: 0;
+}
+
 
 header::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
     z-index: 1;
 }
 
 .hero {
     position: relative;
-    top: 50%;
-    transform: translateY(-50%);
     text-align: center;
+    z-index: 2;
+    min-height: 60vh;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 80px;
+}
+.hero > * {
+    position: relative;
     z-index: 2;
 }
 
